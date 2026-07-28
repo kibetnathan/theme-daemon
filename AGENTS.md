@@ -2,7 +2,7 @@
 
 ## Architecture
 
-- **Hexagonal (ports & adapters):** `engine/port.py` defines `ToolPlugin` ABC; `engine/core.py` is `ThemeEngine`; `plugins/*.py` are adapters.
+- **Hexagonal (ports & adapters):** `engine/port.py` defines `ToolPlugin` ABC; `engine/core.py` is `ThemeEngine`; `plugins/*.py` (or `plugins/*/__init__.py` for bundled plugins) are adapters.
 - **Registration:** Add new plugins to `plugins/__init__.py` `all_plugins()` — no auto-discovery.
 - **Entry point** `theme-daemon.py` — wires engine + plugins. Shell wrapper `theme-daemon.sh` for start/stop/status/restart/once/logs.
 - **macOS only** — uses `defaults read -g AppleInterfaceStyle`, `osascript`, macOS-specific tools (yabai, sketchybar, borders).
@@ -44,7 +44,7 @@ theme-daemon.py once|logs|pid        # direct python entry
 | sketchybar | `palette_rewrite` | Reloads via `sketchybar --reload` |
 | fastfetch | custom ANSI map | Hardcoded 256-color mapping (not palette-based), bidirectional swap |
 | newtab | `line_replace` | Hardcoded hex colors, not palette-based |
-| wallpaper | custom (`set-wallpaper.py` + `set-wallpaper.sh`) | Updates macOS wallpaper store Index.plist for all spaces, then triggers refresh via osascript. Non-disruptive — no space switching. |
+| wallpaper | custom (`plugins/wallpaper/` package) | Reads `wallpaper.json`, delegates to `set-wallpaper.sh` (yabai + osascript per space). |
 | yabai | `line_replace` | Trailing `\\` matters, restarts yabai service |
 
 ## Palette files
@@ -55,7 +55,9 @@ theme-daemon.py once|logs|pid        # direct python entry
 
 ## Testing / tooling
 
-- **No tests, no CI, no linter/typechecker config.** Manual testing via `theme-daemon once`.
+- **Linter:** `ruff` — run `ruff check .` before committing.
+- **CI:** GitHub Actions runs `astral-sh/ruff-action@v3` on push/PR to `main` (`.github/workflows/lint.yml`).
+- **Manual testing:** `theme-daemon once`.
 
 ## Git style
 
