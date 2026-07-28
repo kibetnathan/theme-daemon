@@ -1,6 +1,7 @@
-import logging
 import os
 import re
+
+from loguru import logger
 
 from engine.port import ToolPlugin
 from ._base import restart_borders_process
@@ -26,6 +27,6 @@ class BordersPlugin(ToolPlugin):
 
         with open(path, "w") as f:
             f.write(content)
-        logging.info(f"Updated {path}")
+        logger.info(f"Updated {path}")
         restart_borders_process()
         return True

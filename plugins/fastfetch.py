@@ -1,5 +1,6 @@
-import logging
 import os
+
+from loguru import logger
 
 from engine.port import ToolPlugin
 
@@ -36,5 +37,5 @@ class FastfetchPlugin(ToolPlugin):
         if changed:
             with open(path, "w") as f:
                 f.write(content)
-            logging.info(f"Updated {path}")
+            logger.info(f"Updated {path}")
         return changed

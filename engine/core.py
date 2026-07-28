@@ -1,11 +1,12 @@
 import json
-import logging
 import os
 import signal
 import subprocess
 import sys
 import time
 from pathlib import Path
+
+from loguru import logger
 
 from .port import ToolPlugin
 
@@ -20,7 +21,7 @@ class ThemeEngine:
 
     def register(self, plugin: ToolPlugin) -> None:
         self.plugins.append(plugin)
-        logging.info(f"Registered plugin: {plugin.name}")
+        logger.info(f"Registered plugin: {plugin.name}")
 
     def load_palettes(self) -> None:
         for name in ("mocha", "latte"):
@@ -36,14 +37,14 @@ class ThemeEngine:
 
     def apply_all(self, is_dark: bool) -> None:
         mode = "DARK" if is_dark else "LIGHT"
-        logging.info(f"Applying {mode} theme")
+        logger.info(f"Applying {mode} theme")
         palette = self.palettes["mocha" if is_dark else "latte"]
         for plugin in self.plugins:
             try:
                 if plugin.apply(palette, is_dark):
                     plugin.reload()
             except Exception as e:
-                logging.error(f"{plugin.name}: {e}")
+                logger.error(f"{plugin.name}: {e}")
         msg = "Light Mode — Catppuccin Latte" if not is_dark else "Dark Mode — Catppuccin Mocha"
         subprocess.run(
             ["osascript", "-e", f'display notification "{msg}" with title "Theme Daemon"'],
@@ -64,7 +65,7 @@ class ThemeEngine:
                     self._current_dark = new
                     self.apply_all(new)
             except Exception as e:
-                logging.error(f"Poll error: {e}")
+                logger.error(f"Poll error: {e}")
 
     def run_once(self) -> None:
         self.load_palettes()

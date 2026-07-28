@@ -1,13 +1,14 @@
-import logging
 import os
 import re
 import subprocess
+
+from loguru import logger
 
 
 def line_replace(path: str, replacements: list[tuple[str, str, str]], is_dark: bool) -> bool:
     path = os.path.expanduser(path)
     if not os.path.isfile(path):
-        logging.warning(f"File not found: {path}")
+        logger.warning(f"File not found: {path}")
         return False
     with open(path) as f:
         content = f.read()
@@ -22,14 +23,14 @@ def line_replace(path: str, replacements: list[tuple[str, str, str]], is_dark: b
     if changed:
         with open(path, "w") as f:
             f.write(content)
-        logging.info(f"Updated {path}")
+        logger.info(f"Updated {path}")
     return changed
 
 
 def palette_rewrite(path: str, palette: dict) -> bool:
     path = os.path.expanduser(path)
     if not os.path.isfile(path):
-        logging.warning(f"File not found: {path}")
+        logger.warning(f"File not found: {path}")
         return False
     with open(path) as f:
         content = f.read()
@@ -48,7 +49,7 @@ def palette_rewrite(path: str, palette: dict) -> bool:
     if new_content != content:
         with open(path, "w") as f:
             f.write(new_content)
-        logging.info(f"Updated {path}")
+        logger.info(f"Updated {path}")
         return True
     return False
 
@@ -60,5 +61,5 @@ def restart_borders_process() -> None:
 
 
 def shell(reload_cmd: str) -> None:
-    logging.info(f"Reload: {reload_cmd}")
+    logger.info(f"Reload: {reload_cmd}")
     subprocess.Popen(["bash", "-c", reload_cmd], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
