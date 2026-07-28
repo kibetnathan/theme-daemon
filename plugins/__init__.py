@@ -7,6 +7,7 @@ from .sketchybar import SketchybarPlugin
 from .fastfetch import FastfetchPlugin
 from .newtab import NewtabPlugin
 from .yabai import YabaiPlugin
+from .wallpaper import WallpaperPlugin
 
 
 def all_plugins():
@@ -20,4 +21,5 @@ def all_plugins():
         FastfetchPlugin(),
         NewtabPlugin(),
         YabaiPlugin(),
+        WallpaperPlugin(),
     ]
