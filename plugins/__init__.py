@@ -4,6 +4,7 @@ from .btop import BtopPlugin
 from .fastfetch import FastfetchPlugin
 from .ghostty import GhosttyPlugin
 from .newtab import NewtabPlugin
+from .opencode import OpencodePlugin
 from .sketchybar import SketchybarPlugin
 from .tmux import TmuxPlugin
 from .wallpaper import WallpaperPlugin
@@ -20,6 +21,7 @@ def all_plugins():
         SketchybarPlugin(),
         FastfetchPlugin(),
         NewtabPlugin(),
+        OpencodePlugin(),
         YabaiPlugin(),
         WallpaperPlugin(),
     ]

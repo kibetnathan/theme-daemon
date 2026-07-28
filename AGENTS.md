@@ -44,6 +44,7 @@ theme-daemon.py once|logs|pid        # direct python entry
 | sketchybar | `palette_rewrite` | Reloads via `sketchybar --reload` |
 | fastfetch | custom ANSI map | Hardcoded 256-color mapping (not palette-based), bidirectional swap |
 | newtab | `line_replace` | Hardcoded hex colors, not palette-based |
+| opencode | `line_replace` (×2) | Bidirectional swap between `catppuccin-mocha` / `catppuccin-latte` in `tui.json` |
 | wallpaper | custom (`plugins/wallpaper/` package) | Reads `wallpaper.json`, delegates to `set-wallpaper.sh` (yabai + osascript per space). |
 | yabai | `line_replace` | Trailing `\\` matters, restarts yabai service |
 
