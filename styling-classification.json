@@ -1,0 +1,142 @@
+{
+  "gui_apps": [
+    {
+      "name": "borders",
+      "type": "window decoration daemon",
+      "styling_in_dot_config": true
+    },
+    {
+      "name": "darktable",
+      "type": "photo editor",
+      "styling_in_dot_config": true
+    },
+    {
+      "name": "ghostty",
+      "type": "terminal emulator",
+      "styling_in_dot_config": true
+    },
+    {
+      "name": "gitk",
+      "type": "git history browser",
+      "styling_in_dot_config": true,
+      "note": "Config lives in git/gitk"
+    },
+    {
+      "name": "raycast",
+      "type": "launcher",
+      "styling_in_dot_config": false,
+      "note": "Themes stored in ~/Library/Application Support/com.raycast.macos/"
+    },
+    {
+      "name": "sketchybar",
+      "type": "macOS status bar",
+      "styling_in_dot_config": true
+    },
+    {
+      "name": "yabai",
+      "type": "tiling window manager",
+      "styling_in_dot_config": true
+    },
+    {
+      "name": "zed",
+      "type": "code editor",
+      "styling_in_dot_config": true
+    }
+  ],
+  "cli_tui": [
+    {
+      "name": "bat",
+      "type": "file previewer (CLI)",
+      "styling_in_dot_config": true
+    },
+    {
+      "name": "btop",
+      "type": "system monitor (TUI)",
+      "styling_in_dot_config": true
+    },
+    {
+      "name": "fastfetch",
+      "type": "system info (CLI)",
+      "styling_in_dot_config": true
+    },
+    {
+      "name": "git",
+      "type": "version control (CLI)",
+      "styling_in_dot_config": false,
+      "note": "color.ui set in ~/.gitconfig, not ~/.config/git/"
+    },
+    {
+      "name": "htop",
+      "type": "process viewer (TUI)",
+      "styling_in_dot_config": true
+    },
+    {
+      "name": "newtab",
+      "type": "browser new tab page (HTML)",
+      "styling_in_dot_config": true
+    },
+    {
+      "name": "nvim",
+      "type": "editor (TUI)",
+      "styling_in_dot_config": true
+    },
+    {
+      "name": "nvim-backup",
+      "type": "editor (TUI) - backup",
+      "styling_in_dot_config": true
+    },
+    {
+      "name": "nvim-kickstart",
+      "type": "editor (TUI) - kickstart distro",
+      "styling_in_dot_config": true
+    },
+    {
+      "name": "opencode",
+      "type": "AI coding agent (CLI)",
+      "styling_in_dot_config": false,
+      "note": "opencode.jsonc exists but has no styling keys set"
+    },
+    {
+      "name": "tmux",
+      "type": "terminal multiplexer (TUI)",
+      "styling_in_dot_config": true
+    }
+  ],
+  "no_styling_capability": [
+    {
+      "name": "cagent",
+      "type": "agent daemon",
+      "reason": "Headless CLI; only UUID and first-run marker present"
+    },
+    {
+      "name": "herd-lite",
+      "type": "PHP environment manager (CLI)",
+      "reason": "Only PHP binary, Composer, CA bundle, php.ini"
+    },
+    {
+      "name": "jgit",
+      "type": "Java git implementation (CLI)",
+      "reason": "Config is auto-generated filesystem timestamp tuning only"
+    },
+    {
+      "name": "mpm",
+      "type": "package manager (CLI)",
+      "reason": "Config contains only an exclude list"
+    },
+    {
+      "name": "psysh",
+      "type": "PHP debug shell (CLI)",
+      "reason": "Config is update-check JSON and history file only"
+    },
+    {
+      "name": "skhd",
+      "type": "hotkey daemon",
+      "reason": "No visual output; pure keybinding definitions"
+    },
+    {
+      "name": "t",
+      "type": "unknown (not installed)",
+      "reason": "Config is an empty 0-byte file; tool not installed"
+    }
+  ]
+}
