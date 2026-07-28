@@ -36,9 +36,8 @@ Hexagonal (ports & adapters) — the core logic processes theme changes, while t
 | `theme-daemon.sh` | Shell wrapper for start/stop/status/restart/once |
 | `styling-config.md` | Reference documenting how all tools in `~/.config/` manage appearance |
 | `styling-classification.json` | Categorized index of tools (GUI apps, CLI/TUI, no styling) |
-| `palette-mocha.json` | Catppuccin Mocha hex color values |
-| `palette-latte.json` | Catppuccin Latte hex color values |
-
+| `colors/palette-mocha.json` | Catppuccin Mocha hex color values |
+| `colors/palette-latte.json` | Catppuccin Latte hex color values |
 ## Theme Daemon
 
 Auto-switches configured tools between Catppuccin Mocha (dark mode) and Catppuccin Latte (light mode).

@@ -13,8 +13,7 @@ class WallpaperPlugin(ToolPlugin):
         return "wallpaper"
 
     def apply(self, palette: dict, is_dark: bool) -> bool:
-        config_path = os.path.join(os.path.dirname(__file__), "..", "..", "wallpaper.json")
-        config_path = os.path.normpath(config_path)
+        config_path = os.path.join(os.path.dirname(__file__), "..", "..", "wallpapers", "wallpaper.json")
         if not os.path.isfile(config_path):
             logger.warning("wallpaper.json not found")
             return False
