@@ -44,7 +44,7 @@ theme-daemon.py once|logs|pid        # direct python entry
 | sketchybar | `palette_rewrite` | Reloads via `sketchybar --reload` |
 | fastfetch | custom ANSI map | Hardcoded 256-color mapping (not palette-based), bidirectional swap |
 | newtab | `line_replace` | Hardcoded hex colors, not palette-based |
-| wallpaper | custom | Reads `wallpaper.json`, sets desktop via `osascript` |
+| wallpaper | custom (`set-wallpaper.py` + `set-wallpaper.sh`) | Updates macOS wallpaper store Index.plist for all spaces, then triggers refresh via osascript. Non-disruptive — no space switching. |
 | yabai | `line_replace` | Trailing `\\` matters, restarts yabai service |
 
 ## Palette files

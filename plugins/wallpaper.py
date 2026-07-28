@@ -30,14 +30,8 @@ class WallpaperPlugin(ToolPlugin):
             logger.warning(f"No wallpaper path for {key} mode")
             return False
 
-        script = (
-            f'tell application "System Events"\n'
-            f"    repeat with d in (every desktop)\n"
-            f'        set picture of d to POSIX file "{path}"\n'
-            f"    end repeat\n"
-            "end tell"
-        )
-        r = subprocess.run(["osascript", "-e", script], capture_output=True, text=True)
+        script = os.path.join(MANAGER, "set-wallpaper.sh")
+        r = subprocess.run(["bash", script, path], capture_output=True, text=True)
 
         if r.returncode != 0:
             logger.error(f"Wallpaper failed: {r.stderr.strip()}")
