@@ -7,16 +7,14 @@ from loguru import logger
 from engine.port import ToolPlugin
 
 
-MANAGER = os.path.expanduser("~/.config/.manager")
-
-
 class WallpaperPlugin(ToolPlugin):
     @property
     def name(self) -> str:
         return "wallpaper"
 
     def apply(self, palette: dict, is_dark: bool) -> bool:
-        config_path = os.path.join(MANAGER, "wallpaper.json")
+        config_path = os.path.join(os.path.dirname(__file__), "..", "..", "wallpaper.json")
+        config_path = os.path.normpath(config_path)
         if not os.path.isfile(config_path):
             logger.warning("wallpaper.json not found")
             return False
@@ -30,7 +28,7 @@ class WallpaperPlugin(ToolPlugin):
             logger.warning(f"No wallpaper path for {key} mode")
             return False
 
-        script = os.path.join(MANAGER, "set-wallpaper.sh")
+        script = os.path.join(os.path.dirname(__file__), "set-wallpaper.sh")
         r = subprocess.run(["bash", script, path], capture_output=True, text=True)
 
         if r.returncode != 0:
