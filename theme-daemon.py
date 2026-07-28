@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-from plugins import all_plugins
-from engine.core import ThemeEngine
-from loguru import logger
 import os
 import sys
+
+from loguru import logger
+
+from engine.core import ThemeEngine
+from plugins import all_plugins
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
@@ -34,7 +36,8 @@ def main():
         elif cmd == "pid":
             pid_file = "/tmp/theme-daemon.pid"
             if os.path.isfile(pid_file):
-                print(open(pid_file).read().strip())
+                with open(pid_file) as f:
+                    print(f.read().strip())
             return
         elif cmd == "logs":
             import glob

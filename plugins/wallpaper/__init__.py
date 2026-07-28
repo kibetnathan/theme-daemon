@@ -29,7 +29,7 @@ class WallpaperPlugin(ToolPlugin):
             return False
 
         script = os.path.join(os.path.dirname(__file__), "set-wallpaper.sh")
-        r = subprocess.run(["bash", script, path], capture_output=True, text=True)
+        r = subprocess.run(["bash", script, path], capture_output=True, text=True, check=False)
 
         if r.returncode != 0:
             logger.error(f"Wallpaper failed: {r.stderr.strip()}")

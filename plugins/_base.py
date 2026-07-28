@@ -55,7 +55,7 @@ def palette_rewrite(path: str, palette: dict) -> bool:
 
 
 def restart_borders_process() -> None:
-    subprocess.run(["pkill", "-x", "borders"], capture_output=True)
+    subprocess.run(["pkill", "-x", "borders"], capture_output=True, check=False)
     path = os.path.expanduser("~/.config/borders/bordersrc")
     subprocess.Popen(["bash", path], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 

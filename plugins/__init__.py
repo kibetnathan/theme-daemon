@@ -1,13 +1,13 @@
 from .bat import BatPlugin
-from .ghostty import GhosttyPlugin
-from .btop import BtopPlugin
-from .tmux import TmuxPlugin
 from .borders import BordersPlugin
-from .sketchybar import SketchybarPlugin
+from .btop import BtopPlugin
 from .fastfetch import FastfetchPlugin
+from .ghostty import GhosttyPlugin
 from .newtab import NewtabPlugin
-from .yabai import YabaiPlugin
+from .sketchybar import SketchybarPlugin
+from .tmux import TmuxPlugin
 from .wallpaper import WallpaperPlugin
+from .yabai import YabaiPlugin
 
 
 def all_plugins():

@@ -1,6 +1,6 @@
 from engine.port import ToolPlugin
-from ._base import line_replace, shell
 
+from ._base import line_replace, shell
 
 DARK = "                                        insert_feedback_color 0xffa6e3a1 \\"
 LIGHT = "                                        insert_feedback_color 0xff40a02b \\"

@@ -26,12 +26,13 @@ class ThemeEngine:
     def load_palettes(self) -> None:
         for name in ("mocha", "latte"):
             path = Path(MANAGER) / f"palette-{name}.json"
-            self.palettes[name] = json.load(open(path))
+            with open(path) as f:
+                self.palettes[name] = json.load(f)
 
     def detect(self) -> bool:
         r = subprocess.run(
             ["defaults", "read", "-g", "AppleInterfaceStyle"],
-            capture_output=True, text=True,
+            capture_output=True, text=True, check=False,
         )
         return r.stdout.strip() == "Dark"
 
@@ -43,12 +44,12 @@ class ThemeEngine:
             try:
                 if plugin.apply(palette, is_dark):
                     plugin.reload()
-            except Exception as e:
+            except Exception as e:  # noqa: BLE001
                 logger.error(f"{plugin.name}: {e}")
         msg = "Light Mode — Catppuccin Latte" if not is_dark else "Dark Mode — Catppuccin Mocha"
         subprocess.run(
             ["osascript", "-e", f'display notification "{msg}" with title "Theme Daemon"'],
-            capture_output=True,
+            capture_output=True, check=False,
         )
 
     def run(self) -> None:
@@ -64,7 +65,7 @@ class ThemeEngine:
                 if new != self._current_dark:
                     self._current_dark = new
                     self.apply_all(new)
-            except Exception as e:
+            except Exception as e:  # noqa: BLE001
                 logger.error(f"Poll error: {e}")
 
     def run_once(self) -> None:
