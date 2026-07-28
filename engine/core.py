@@ -25,7 +25,7 @@ class ThemeEngine:
 
     def load_palettes(self) -> None:
         for name in ("mocha", "latte"):
-            path = Path(MANAGER) / f"palette-{name}.json"
+            path = Path(MANAGER) / "colors" / f"palette-{name}.json"
             with open(path) as f:
                 self.palettes[name] = json.load(f)
 

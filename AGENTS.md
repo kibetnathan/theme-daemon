@@ -45,13 +45,14 @@ theme-daemon.py once|logs|pid        # direct python entry
 | fastfetch | custom ANSI map | Hardcoded 256-color mapping (not palette-based), bidirectional swap |
 | newtab | `line_replace` | Hardcoded hex colors, not palette-based |
 | opencode | `line_replace` (×2) | Bidirectional swap between `catppuccin-mocha` / `catppuccin-latte` in `tui.json` |
-| wallpaper | custom (`plugins/wallpaper/` package) | Reads `wallpaper.json`, delegates to `set-wallpaper.sh` (yabai + osascript per space). |
+| wallpaper | custom (`plugins/wallpaper/` package) | Reads `wallpapers/wallpaper.json`, delegates to `set-wallpaper.sh` (yabai + osascript per space). |
 | yabai | `line_replace` | Trailing `\\` matters, restarts yabai service |
 
 ## Palette files
 
-- `palette-mocha.json` (dark) and `palette-latte.json` (light) — Catppuccin hex colors (no `#` prefix).
-- `wallpaper.json` — maps `"dark"` and `"light"` keys to wallpaper image paths (uses `~` expansion).
+- `colors/palette-mocha.json` (dark) and `colors/palette-latte.json` (light) — Catppuccin hex colors (no `#` prefix).
+- `wallpapers/wallpaper.json` — maps `"dark"` and `"light"` keys to wallpaper image paths (uses `~` expansion).
+- `wallpapers/images/` — directory for actual wallpaper image files.
 - Keys: base, mantle, crust, text, subtext0/1, surface0/1/2, overlay0/1/2, blue, lavender, sapphire, sky, teal, green, yellow, peach, maroon, red, mauve, pink, flamingo, rosewater.
 
 ## Testing / tooling
