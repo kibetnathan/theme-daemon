@@ -19,4 +19,4 @@ class TmuxPlugin(ToolPlugin):
         ], is_dark)
 
     def reload(self) -> None:
-        shell("tmux source-file ~/.config/tmux/tmux.conf")
+        shell("bash ~/.tmux/plugins/catppuccin/tmux/catppuccin.tmux")
