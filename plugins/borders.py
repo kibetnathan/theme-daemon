@@ -19,7 +19,7 @@ class BordersPlugin(ToolPlugin):
         with open(path) as f:
             content = f.read()
 
-        for color_key, alpha in [("mauve", "c0"), ("lavender", "c0"), ("mantle", "30")]:
+        for color_key, alpha in [("mauve", "ff"), ("lavender", "dd"), ("mantle", "60")]:
             rgb = palette[color_key]
             argb = f"0x{alpha}{rgb}"
             name = {"mauve": "active", "lavender": "inactive", "mantle": "background"}[color_key]

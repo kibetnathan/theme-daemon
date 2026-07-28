@@ -8,10 +8,12 @@ class BatPlugin(ToolPlugin):
         return "bat"
 
     def apply(self, palette: dict, is_dark: bool) -> bool:
+        target = '--theme="Catppuccin Mocha"' if is_dark else '--theme="Catppuccin Latte"'
         return line_replace(
             "~/.config/bat/config",
-            [('--theme="Catppuccin Mocha"',
-              '--theme="Catppuccin Mocha"',
-              '--theme="Catppuccin Latte"')],
+            [
+                ('--theme="Catppuccin Mocha"', target, target),
+                ('--theme="Catppuccin Latte"', target, target),
+            ],
             is_dark,
         )
