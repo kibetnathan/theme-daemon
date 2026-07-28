@@ -39,7 +39,7 @@ theme-daemon.py once|logs|pid        # direct python entry
 | bat | `line_replace` | Theme string in bat config |
 | ghostty | `line_replace` (×2) | Returns `a or b` — changes theme + opacity |
 | btop | `line_replace` | Straight theme swap |
-| tmux | custom regex | Swaps `@ukiyo-theme` value, reloads via `tmux source-file` |
+| tmux | `line_replace` | Swaps `@catppuccin_flavor` between mocha/latte, reloads via `tmux source-file` |
 | borders | custom file rewrite | Inline ARGB computation (`0x{alpha}{rgb}`), always kills + restarts |
 | sketchybar | `palette_rewrite` | Reloads via `sketchybar --reload` |
 | fastfetch | custom ANSI map | Hardcoded 256-color mapping (not palette-based), bidirectional swap |
